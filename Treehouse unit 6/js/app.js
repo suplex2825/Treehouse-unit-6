@@ -16,19 +16,22 @@ function getRandomPhraseAsArray(arr) {
     return randomPhrase;
 }
 
-getRandomPhraseAsArray(pharseArray);
 
+var phrase = getRandomPhraseAsArray(pharseArray);
 
 function addPhraseToDisplay(arr) {
 	for (var i = 0; i < arr.length; i++) {
 		var add = arr[i];
-		var ul = choosePhrase.children[0];
+		var ul = choosePhrase.children;
 		var li = document.createElement('li');
 		ul.appendChild(li);
+		li.textContent = add;
 		if (add !== '') {
-			li.appendChild(add);
+			li.className = 'letter';
+		} else {
+			li.className = 'space';
 		}
 	}
 }
 
-addPhraseToDisplay(pharseArray);
+addPhraseToDisplay(phrase);
